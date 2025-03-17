@@ -1,13 +1,15 @@
 import { useState } from "react";
-import "./App.css";
 import VirtualizedList from "./components/VirtualizedList/";
+import CommentList from "./components/RBAC/CommentList";
+import "./App.css";
 
 const arr = Array.from({ length: 100 }, (_, idx) => idx + 1);
 function App() {
   const [data, setData] = useState(arr);
   return (
     <>
-      <VirtualizedList list={data} height={400} itemHeight={40} width={500} />
+      <CommentList />
+      {/* <VirtualizedList list={data} height={400} itemHeight={40} width={500} /> */}
     </>
   );
 }
