@@ -5,7 +5,7 @@ import Pagination from "./components/Pagination";
 
 import "./App.css";
 
-const arr = Array.from({ length: 100 }, (_, idx) => idx + 1);
+const arr = Array.from({ length: 200 }, (_, idx) => idx + 1);
 
 function App() {
   const [data, setData] = useState(arr);

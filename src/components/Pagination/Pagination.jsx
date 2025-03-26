@@ -2,6 +2,7 @@ import { useState } from "react";
 
 const PAGE_SIZE = 10;
 const DEFAULT_PAGE = 1;
+const MAX_BUTTON_DISPLAY = 6;
 
 const Pagination = ({ data, renderRow, pageSize = PAGE_SIZE }) => {
   const [currentPage, setCurrentPage] = useState(DEFAULT_PAGE);
@@ -12,6 +13,26 @@ const Pagination = ({ data, renderRow, pageSize = PAGE_SIZE }) => {
 
   const dataToShow = data.slice(startIndex, endIndex);
 
+  const pagesButtons = Array.from({ length: totalPages }, (_, index) => index);
+  const maxButtons = MAX_BUTTON_DISPLAY;
+
+  let buttonStartIndex = currentPage - Math.floor(maxButtons / 2);
+  let buttonEndIndex = currentPage + Math.floor(maxButtons / 2);
+
+  if (buttonStartIndex < 1) {
+    buttonStartIndex = 1;
+    buttonEndIndex = Math.min(totalPages, maxButtons);
+  }
+
+  if (buttonEndIndex > totalPages) {
+    buttonEndIndex = totalPages;
+    buttonStartIndex = Math.max(1, totalPages - maxButtons + 1);
+  }
+  console.log("buttonStartIndex == ", buttonStartIndex);
+  console.log("buttonEndIndex == ", buttonEndIndex);
+
+  const buttonToDisplay = pagesButtons.slice(buttonStartIndex, buttonEndIndex);
+  console.log(pagesButtons);
   const handlePaginationBtn = (pageNo) => setCurrentPage(pageNo);
   const previousBtn = () => setCurrentPage(currentPage - 1);
   const nextBtn = () => setCurrentPage(currentPage + 1);
@@ -27,14 +48,14 @@ const Pagination = ({ data, renderRow, pageSize = PAGE_SIZE }) => {
         );
       })}
       <div className="paginationBtnContainer">
-        {Array.from({ length: totalPages })?.map((_, idx) => {
+        {buttonToDisplay?.map((pageNumber) => {
           return (
             <button
               className="border p-1 m-1 cursor-pointer"
-              key={idx}
-              onClick={() => handlePaginationBtn(idx + 1)}
+              key={pageNumber}
+              onClick={() => handlePaginationBtn(pageNumber)}
             >
-              {idx + 1}
+              {pageNumber}
             </button>
           );
         })}
