@@ -1,0 +1,23 @@
+.row-container {}
+
+.col-container {
+    border: 1px solid rgba(0, 0, 0, .5);
+    height: 100px;
+    width: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.workingLight {
+    background-color: #00ff00;
+}
+
+.notWorkingLight {
+    background-color: #5d0808;
+    color: #fff;
+}
+
+.activeLight {
+    background-color: #ef750f;
+}
