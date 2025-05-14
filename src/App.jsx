@@ -4,6 +4,7 @@ import { useState } from "react";
 import Pagination from "./components/Pagination";
 
 import "./App.css";
+import SignUpForm from "./components/SignUpForm";
 
 const arr = Array.from({ length: 200 }, (_, idx) => idx + 1);
 
@@ -18,6 +19,7 @@ function App() {
       {/* <CommentList /> */}
       {/* <VirtualizedList list={data} height={400} itemHeight={40} width={500} /> */}
       {/* <Carousel /> */}
+      <SignUpForm />
       <Pagination
         data={data}
         renderRow={function (rowData) {
