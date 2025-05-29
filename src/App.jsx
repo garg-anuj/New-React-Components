@@ -5,6 +5,7 @@ import Pagination from "./components/Pagination";
 
 import "./App.css";
 import SignUpForm from "./components/SignUpForm";
+import DashBoard from "./components/DashBoard/DashBoard";
 
 const arr = Array.from({ length: 200 }, (_, idx) => idx + 1);
 
@@ -14,6 +15,7 @@ function App() {
   // will get current page no / uska data
   return (
     <>
+      <DashBoard />
       {/* <Counter /> */}
       {/* <Throttling /> */}
       {/* <CommentList /> */}

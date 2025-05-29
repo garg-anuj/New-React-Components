@@ -1,0 +1,12 @@
+// roles.js
+export const PERMISSIONS = {
+  READ: "READ",
+  EDIT: "EDIT",
+  DELETE: "DELETE",
+};
+
+export const ROLE_TO_PERMISSIONS = {
+  agent: [PERMISSIONS.READ],
+  manager: [PERMISSIONS.READ, PERMISSIONS.EDIT],
+  admin: [PERMISSIONS.READ, PERMISSIONS.EDIT, PERMISSIONS.DELETE],
+};
