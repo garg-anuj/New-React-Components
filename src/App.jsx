@@ -33,3 +33,24 @@ function App() {
 }
 
 export default App;
+
+// const AdminRoute = ({ children }) => {
+//   const isAdmin = true;
+//   return isAdmin ? children : <Navigate to="/home" />;
+// };
+
+// <BrowserRouter>
+//   <Link to="/home">Hello</Link>
+//   <Link to="/home">Hello</Link>
+//   <Routes>
+//     <Route path="/home" element={<CardsList />} />
+//     <Route
+//       path="/privacy"
+//       element={
+//         <AdminRoute>
+//           <Privacy />
+//         </AdminRoute>
+//       }
+//     />
+//   </Routes>
+// </BrowserRouter>
