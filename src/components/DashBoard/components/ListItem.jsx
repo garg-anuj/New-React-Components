@@ -12,11 +12,21 @@ const ListItem = ({ item, onEdit, onDelete }) => {
       <div>{item.name}</div>
 
       <HasPermission permission={PERMISSIONS.EDIT}>
-        <button onClick={() => onEdit(item)}>Edit</button>
+        <button
+          className="border px-2 rounded-[.25rem]"
+          onClick={() => onEdit(item)}
+        >
+          Edit
+        </button>
       </HasPermission>
 
       <HasPermission permission={PERMISSIONS.DELETE}>
-        <button onClick={() => onDelete(item)}>Delete</button>
+        <button
+          className="border px-2 rounded-[.25rem]"
+          onClick={() => onDelete(item)}
+        >
+          Delete
+        </button>
       </HasPermission>
     </div>
   );
